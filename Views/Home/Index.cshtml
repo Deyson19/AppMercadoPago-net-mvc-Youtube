@@ -1,0 +1,118 @@
+﻿@model EnviarPagoDto
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center shadow-lg border-2 bg-info">
+    <h1 class="display-4">Welcome</h1>
+    <form id="form-checkout" method="post" autocomplete="on">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="card shadow-lg border-2">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+
+                        <div class="form-group">
+                            <label asp-for="ZipCode" class="form-label"></label>
+                            <input asp-for="ZipCode" class="form-control" value="45900">
+                            <span class="text-danger" asp-validation-for="ZipCode"></span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="StreetName" class="form-label"></label>
+                            <input asp-for="StreetName" class="form-control" value="Street 89, L34">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="StreetNumber" class="form-label">Street Number</label>
+                            <input asp-for="StreetNumber" class="form-control" value="25-78">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="Neighborhood" class="form-label">Neighborhood</label>
+                            <input asp-for="Neighborhood" class="form-control" value="Barrio Casillo">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="City" class="form-label"></label>
+                            <input asp-for="City" class="form-control" value="Madrid">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="FederalUnit" class="form-label"></label>
+                            <input asp-for="FederalUnit" class="form-control" value="Madrid">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="phoneAreaCode" class="form-label">PhoneAreaCode</label>
+                            <input asp-for="PhoneAreaCode" value="025" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber" class="form-label">PhoneNumber</label>
+                            <input asp-for="PhoneNumber" value="+573196670987" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="rol">
+                        <div class="form-group">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" value="testing-compras@mail.com" class="form-control" type="email">
+                        </div>
+                    </div>
+                    <div class="rol">
+                        <div class="form-group">
+                            <label asp-for="PersonType" class="form-label"></label>
+                            <select id="form-checkout_personType" name="personType" type="text">
+                                <option value="natural">Natural</option>
+                                <option value="juridica">Jurídica</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="rol">
+                        <div class="form-group">
+                            <label class="form-label"></label>
+                            <select asp-for="IdentificationType" class="form-select">
+                                <option value="CC">C.C</option>
+                                <option value="CE">C.E</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="rol">
+                        <div class="form-group">
+                            <label asp-for="IdentificationNumber" class="form-label"></label>
+                            <input asp-for="IdentificationNumber" value="123456789" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label for="banksList" class="form-label"></label>
+                    <div id="banksList"></div>
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <input type="hidden" name="transactionAmount" id="transactionAmount" value="100" class="form-control">
+                    <input type="hidden" name="description" id="description" value="Nome do Produto" class="form-control">
+                    <br>
+                    <button type="submit">Pagar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
